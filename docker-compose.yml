@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  websiteshot:
+    container_name: websiteshot
+    image: flowko1/website-shot:latest
+    mem_limit: 3g
+    cpu_shares: 768
+    ports:
+      - 3000:3000
+    volumes:
+      - /data/websiteshot:/usr/src/website-shot/screenshots:rw
+    environment:
+      PASSWORD_PROTECT: 1
+      PASSWORD: mariushosting
+    restart: unless-stopped
